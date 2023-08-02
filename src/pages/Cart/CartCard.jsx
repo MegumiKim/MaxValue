@@ -11,7 +11,7 @@ export default function CartCard({ data }) {
   };
 
   return (
-    <div className="flex mb-4">
+    <div className="flex mb-4 pb-4 border-b-2 border-opacity-30 border-slate-400">
       <div className="flex-1 max-h-24">
         <img
           src={data.thumbnail}
@@ -21,7 +21,7 @@ export default function CartCard({ data }) {
       </div>
       <div className="flex flex-col flex-1 justify-center">
         <div className="">
-          <h3 className="text-xl">{data.title}</h3>
+          <h3 className="text-lg font-bold">{data.title}</h3>
           <div className="flex gap-4 justify-between">
             <div className="flex gap-5">
               <p className="">{data.price} NOK</p>

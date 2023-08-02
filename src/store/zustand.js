@@ -6,6 +6,7 @@ const defaultCart = {
   total: 0,
   totalQty: 0,
 };
+
 export const useStore = create(
   persist(
     (set) => ({

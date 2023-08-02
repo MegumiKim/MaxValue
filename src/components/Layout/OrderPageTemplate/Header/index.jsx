@@ -7,7 +7,7 @@ export function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <header className="w-full p-4 mb-5">
+    <header className="w-full p-6 sticky top-0 bg-white dark:bg-black z-10">
       <div className="md:max-w-screen-lg mx-auto lg:px-0 sm:flex sm:justify-between sticky top-0 z-10 ">
         <div className="flex justify-between w-full">
           <Link to="/" className="me-5 text-2xl md:text-5xl logo">

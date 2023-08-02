@@ -7,13 +7,13 @@ import { useStore } from "../../store/zustand";
 function Cart() {
   const cartItems = useStore((state) => state.cartItems);
 
-  console.log(cartItems);
   return (
-    <main className="md:max-w-screen-lg mx-auto px-10 min-w-fit">
+    <main className="md:mx-auto px-10 my-10">
+      {/* <main className="md:max-w-screen-lg mx-auto px-10 min-w-fit"> */}
       <h1 className="text-4xl mb-6">My Cart</h1>
       {cartItems.length ? (
         <div>
-          <div className="md:flex mb-10 gap-6">
+          <div className="md:flex mb-10 gap-10">
             <div className="md:flex md:mx-auto gap-4 flex-1">
               <CartItems />
             </div>

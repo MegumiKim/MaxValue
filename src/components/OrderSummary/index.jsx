@@ -1,5 +1,6 @@
 import React from "react";
 import { useStore } from "../../store/zustand";
+import formattedNOK from "../../utils/currecyFormat";
 
 export default function OrderSummary() {
   const total = useStore((state) => state.total);
@@ -7,31 +8,32 @@ export default function OrderSummary() {
   const shipping = 35;
 
   return (
-    <table className="max-w-lg mx-auto">
+    <table className="max-w-lg mx-auto border-separate border-spacing-x-10 border">
       <caption>
         <h2 className="text-2xl mb-5">Order Summary</h2>
       </caption>
 
-      <tbody className="divide-y divide-solid ">
+      <tbody className="outline-t-4 outline-slate-700">
         <tr>
           <td>Total Items</td>
           <td className="text-end">{totalQty}</td>
         </tr>
         <tr>
           <td>Sub Total</td>
-          <td className="text-end">{total} NOK</td>
+          <td className="text-end">{formattedNOK(total)} </td>
         </tr>
         <tr>
           <td>VAT (15%)</td>
-          <td className="text-end">{total * 0.15} NOK</td>
+          <td className="text-end">{formattedNOK(total * 0.15)}</td>
         </tr>
         <tr>
           <td>Shipping</td>
-          <td className="text-end">{shipping} kr</td>
+          <td className="text-end">{formattedNOK(shipping)} </td>
         </tr>
-        <tr className="text-xl">
-          <td className="pt-3">Grand Total</td>
-          <td className="pt-3 text-end">{total + shipping} kr</td>
+
+        <tr className="text-xl border border-t-4 border-slate-600 ">
+          <td className="pt-3 ">Grand Total</td>
+          <td className="pt-3 text-end ">{formattedNOK(total + shipping)} </td>
         </tr>
       </tbody>
     </table>

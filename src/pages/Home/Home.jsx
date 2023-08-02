@@ -1,24 +1,39 @@
 import React from "react";
 import ProductList from "./ProductList/index.jsx";
-
-const sortBtnStyles =
-  "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-4 mx-auto";
+import { useApi } from "../../hooks/api.js";
+import { baseURL } from "../../hooks/constants.js";
+import Loader from "../../components/ui/Loader.jsx";
+import { useProductStore } from "../../store/productsStore.js";
+import Filters from "./ProductList/Filters.jsx";
+import { FaFilter } from "react-icons/fa";
 
 function Home() {
+  const { data, loading } = useApi(baseURL);
+  const setProducts = useProductStore((state) => state.setProducts);
+  const products = useProductStore((state) => state.products);
+
+  if (loading || !data.products) {
+    return <Loader />;
+  }
+
+  const sortedProducts = products;
+  setProducts(data.products);
+
   return (
     <main className="m-auto md:max-w-screen-lg ">
       <section className="hero flex justify-end">
-        <h1 className="font-bold text-5xl my-auto me-5 text-black logo shadow-xl">
+        {/* <h1 className="font-bold text-5xl my-auto me-5 text-black logo shadow-xl">
           Summer Sale
-        </h1>
+        </h1> */}
       </section>
       <div className="px-3 md:px-0">
-        <div className="flex">
-          <button className={sortBtnStyles}>Sort By Categories</button>
-          <button className={sortBtnStyles}>Price</button>
-          <button className={sortBtnStyles}>Motor Cycles</button>
-        </div>
-        <ProductList />
+        <button className="flex align-middle gap-3 my-4 me-0">
+          <FaFilter className="m-auto " />
+          Filter
+        </button>
+        <Filters />
+
+        <ProductList products={data.products} />
       </div>
     </main>
   );

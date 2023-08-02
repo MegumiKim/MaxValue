@@ -51,7 +51,9 @@ export default function CheckoutForm() {
               {...register("name")}
             />
           </div>
-          <p className="error">{errors.name?.message}</p>
+          <p className="error text-sm text-red-400 text-end p-2">
+            {errors.name?.message}
+          </p>
         </div>
         <div className="form-field">
           <div>
@@ -63,7 +65,9 @@ export default function CheckoutForm() {
               {...register("email")}
             />
           </div>
-          <p className="error">{errors.email?.message}</p>
+          <p className="error text-sm text-red-400 text-end p-2">
+            {errors.email?.message}
+          </p>
         </div>
         <div className="form-field">
           <div>
@@ -75,11 +79,13 @@ export default function CheckoutForm() {
               {...register("address")}
             />
           </div>
-          <p className="error">{errors.address?.message}</p>
+          <p className="error text-sm text-red-400 text-end p-2">
+            {errors.address?.message}
+          </p>
         </div>
         <div className="form-field">
           <div>
-            <label htmlFor="">credit card number</label>
+            <label htmlFor="">Credit card number</label>
             <input
               type="tel"
               placeholder="credit card number"
@@ -87,7 +93,9 @@ export default function CheckoutForm() {
               className="dark:bg-slate-700 dark:border-none"
             />
           </div>
-          <p className="error">{errors.cc?.message}</p>
+          <p className="error text-sm text-red-400 text-end p-2">
+            {errors.cc?.message}
+          </p>
         </div>
 
         <div className="flex">

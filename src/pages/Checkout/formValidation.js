@@ -7,5 +7,8 @@ export const checkoutSchema = yup.object().shape({
     .string()
     .min(4)
     .required("Address has to be minimum 4 characters"),
-  cc: yup.number().integer().required("Credit Card Number is required"),
+  cc: yup
+    .number("Please input numbers")
+    .integer("Please input numbers")
+    .required("Credit Card Number is required"),
 });

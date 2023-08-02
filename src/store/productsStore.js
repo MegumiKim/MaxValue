@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
 export const useProductStore = create((set) => ({
-  productsList: [],
+  products: [],
   setProducts: (data) =>
     set(() => {
-      return { productsList: [data] };
+      return { products: data };
     }),
 }));
