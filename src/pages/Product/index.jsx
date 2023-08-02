@@ -1,8 +1,7 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useApi } from "../../hooks/api";
 import { baseURL } from "../../hooks/constants";
-// import { useStore } from "../../store/zustand";
 import AddToCartBtn from "./AddToCartBtn";
 
 function Product() {

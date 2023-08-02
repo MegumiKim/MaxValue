@@ -1,46 +1,47 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-export const useStore = create((set) => ({
+const defaultCart = {
   cartItems: [],
   total: 0,
   totalQty: 0,
-  addToCart: (item, qty = 1) =>
-    set((state) => {
-      console.log(state.cartItems);
+};
+export const useStore = create(
+  persist(
+    (set) => ({
+      defaultCart,
+      addToCart: (item, qty = 1) =>
+        set((state) => {
+          const updatedCartItems = updateCart(state.cartItems, item, qty);
+          const updatedTotal = calculateTotal(updatedCartItems);
+          const updatedTotalQty = countTotalQty(updatedCartItems);
 
-      const updatedCartItems = updateCart(state.cartItems, item, qty);
-      const updatedTotal = calculateTotal(updatedCartItems);
-      const updatedTotalQty = countTotalQty(updatedCartItems);
-
-      return {
-        cartItems: updatedCartItems,
-        total: updatedTotal,
-        totalQty: updatedTotalQty,
-      };
-
-      // const existingItemIndex = state.cartItems.findIndex(
-      //   (cartItem) => cartItem.id === item.id
-      // );
-
-      // if (existingItemIndex !== -1) {
-      //   const updatedCartItems = [...state.cartItems];
-      //   updatedCartItems[existingItemIndex] = {
-      //     ...updatedCartItems[existingItemIndex],
-      //     qty: updatedCartItems[existingItemIndex].qty + qty,
-      //   };
-      //   return {
-      //     total: state.total + item.price,
-      //     cartItems: updatedCartItems,
-      //   };
-      // } else {
-      //   return {
-      //     total: state.total + item.price,
-      //     cartItems: [...state.cartItems, { ...item, qty }],
-      //   };
-      // }
+          return {
+            cartItems: updatedCartItems,
+            total: updatedTotal,
+            totalQty: updatedTotalQty,
+          };
+        }),
+      clearCart: () => set(defaultCart),
+      removeFromCart: (item) =>
+        set((state) => {
+          const updatedCartItems = remove(state.cartItems, item);
+          const updatedTotal = calculateTotal(updatedCartItems);
+          const updatedTotalQty = countTotalQty(updatedCartItems);
+          console.log(updatedTotal);
+          return {
+            cartItems: updatedCartItems,
+            total: updatedTotal,
+            totalQty: updatedTotalQty,
+          };
+        }),
     }),
-  clearCart: () => set({ cartItems: [] }),
-}));
+    {
+      name: "cart",
+      // storage: createJSONStorage(() => sessionStorage),
+    }
+  )
+);
 
 function updateCart(cartItems, itemToAdd, qty) {
   const itemExists = (item) => item.id === itemToAdd.id;
@@ -56,6 +57,10 @@ function updateCart(cartItems, itemToAdd, qty) {
     return updatedCartItems;
   }
   return [...cartItems, { ...itemToAdd, qty }];
+}
+
+function remove(cartItems, itemToRemove) {
+  return cartItems.filter((item) => item.id !== itemToRemove.id);
 }
 
 function calculateTotal(cartItems) {

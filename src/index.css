@@ -39,6 +39,7 @@ img {
 .form-field > div {
   display: flex;
   justify-content: space-between;
+  gap: 1pixabayrem;
 }
 
 .hero {
@@ -57,6 +58,55 @@ input {
   border: solid grey 2px;
   border-radius: 5px;
   /* color-scheme: dark; */
+}
+
+.pill-badge {
+  position: absolute;
+  font-size: 0.7rem;
+  outline: solid black 1px;
+  text-align: center;
+  border-radius: 50%;
+  bottom: 50%;
+  left: 80%;
+  display: inline-block;
+  padding-top: 2px;
+  padding: 2px 5px 2px 5px;
+}
+
+button {
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  color: rgb(245, 128, 128);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-primary,
+.btn-outlined {
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+}
+.btn-primary {
+  background-color: rgb(157, 50, 50);
+  padding: 0.5rem 2rem;
+  color: white;
+}
+.btn-primary:hover {
+  color: white;
+  background-color: rgb(242, 123, 123);
+}
+
+.btn-outlined:hover {
+  color: rgb(242, 123, 123);
+}
+.btn-outlined {
+  outline: 2px solid rgb(242, 123, 123);
 }
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

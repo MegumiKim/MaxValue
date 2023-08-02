@@ -7,5 +7,5 @@ export default function CartItems() {
   const cartCards = cartItems.map((item) => (
     <CartCard data={item} key={item.id} />
   ));
-  return <div>{cartCards}</div>;
+  return <div className="m-auto">{cartCards}</div>;
 }

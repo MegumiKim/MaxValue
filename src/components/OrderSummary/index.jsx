@@ -7,7 +7,7 @@ export default function OrderSummary() {
   const shipping = 35;
 
   return (
-    <table className="w-full max-w-md mx-auto">
+    <table className="max-w-lg mx-auto">
       <caption>
         <h2 className="text-2xl mb-5">Order Summary</h2>
       </caption>

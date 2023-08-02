@@ -16,7 +16,7 @@ export default function ProductList() {
   ));
 
   return (
-    <div className="grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+    <div className="grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
       {products}
     </div>
   );

@@ -1,7 +1,9 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "./components/Layout/index";
+// import { Layout } from "./components/Layout/HomeTemplate/index";
 import Loader from "./components/ui/Loader";
+import { HomeTemplate } from "./components/Layout/HomeTemplate/index";
+import { OrderPageTemplate } from "./components/Layout/OrderPageTemplate";
 
 const Product = lazy(() => import("./pages/Product/"));
 const Home = lazy(() => import("./pages/Home/Home.jsx"));
@@ -14,13 +16,16 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<HomeTemplate />}>
           <Route index element={<Home />} />
           <Route path="product/:id" element={<Product />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="confirmation" element={<CheckoutSuccess />} />
           <Route path="*" element={<PageNotFound />} />
+        </Route>
+
+        <Route path="" element={<OrderPageTemplate />}>
+          <Route path="confirmation" element={<CheckoutSuccess />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </Suspense>

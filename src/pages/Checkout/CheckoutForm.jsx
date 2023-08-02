@@ -3,12 +3,18 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { checkoutSchema } from "./formValidation";
-import { btnStyles } from "../../styles/tailwindClasses";
+import { btnPrimary, btnStyles } from "../../styles/tailwindClasses";
 import { useNavigate } from "react-router-dom";
+import { useStore } from "../../store/zustand";
+import { useUserInfoStore } from "../../store/userInfoStore.js";
 
 export default function CheckoutForm() {
   const navigate = useNavigate();
   const [isValid, setIsValid] = useState(false);
+  const userInfo = useUserInfoStore((state) => state.setUserInfo);
+  const clearCart = useStore((state) => state.clearCart);
+
+  console.log(userInfo);
   const {
     register,
     handleSubmit,
@@ -19,9 +25,11 @@ export default function CheckoutForm() {
   });
 
   function onSubmit(data) {
-    console.log(data);
+    userInfo(data);
     setIsValid(true);
     reset();
+    clearCart();
+    useStore.persist.clearStorage;
     navigate("/confirmation");
   }
 
@@ -29,7 +37,7 @@ export default function CheckoutForm() {
     <form
       action=""
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-md mx-auto"
+      className="mx-auto max-w-md flex-1"
     >
       <fieldset>
         <legend className=" text-2xl mb-6">Payment Details</legend>
@@ -81,8 +89,11 @@ export default function CheckoutForm() {
           </div>
           <p className="error">{errors.cc?.message}</p>
         </div>
+
         <div className="flex">
-          <button className={btnStyles}>Buy</button>
+          <button className="btn-primary text-white mt-6 mx-auto">
+            Confirm & Buy
+          </button>
         </div>
       </fieldset>
     </form>
