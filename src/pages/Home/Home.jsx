@@ -11,7 +11,7 @@ import categoryFilter from "../../utils/categoryFilter.js";
 function Home() {
   const { data, loading } = useApi(baseURL + "/?limit=0");
   const { category } = useFilterStore();
-  const { products, setProducts } = useProductStore();
+  const { setProducts } = useProductStore();
 
   useEffect(() => {
     setProducts(data.products);
@@ -24,7 +24,7 @@ function Home() {
   return (
     <main className="m-auto md:max-w-screen-lg ">
       <section className="hero flex justify-end"></section>
-      <div className="px-3 md:px-0">
+      <div className="px-3 md:px-0 ">
         <Filters />
         <ProductList products={categoryFilter(data.products, category)} />
         {/* <ProductList products={products} /> */}
