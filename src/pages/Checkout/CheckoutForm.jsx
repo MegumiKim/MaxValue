@@ -36,7 +36,7 @@ export default function CheckoutForm() {
     <form
       action=""
       onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto max-w-md flex-1"
+      className="mx-auto max-w-md"
     >
       <fieldset>
         <legend className=" text-2xl mb-6">Payment Details</legend>

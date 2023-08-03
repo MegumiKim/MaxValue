@@ -52,6 +52,7 @@ td,
 .form-field {
   padding-top: 1rem;
   padding-bottom: 0.8rem;
+  white-space: nowrap;
 }
 
 input {
