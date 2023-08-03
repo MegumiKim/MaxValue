@@ -14,7 +14,6 @@ export default function CheckoutForm() {
   const userInfo = useUserInfoStore((state) => state.setUserInfo);
   const clearCart = useStore((state) => state.clearCart);
 
-  console.log(userInfo);
   const {
     register,
     handleSubmit,
@@ -41,62 +40,67 @@ export default function CheckoutForm() {
     >
       <fieldset>
         <legend className=" text-2xl mb-6">Payment Details</legend>
-        <div className="form-field">
-          <div>
-            <label htmlFor="">Full Name</label>
-            <input
-              className="dark:bg-slate-700 dark:border-none"
-              type="text"
-              placeholder="full name"
-              {...register("name")}
-            />
-          </div>
+
+        <label className="">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+            Full Name
+          </span>
+          <input
+            type="text"
+            name="name"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="John Doe"
+            {...register("name")}
+          />
           <p className="error text-sm text-red-400 text-end p-2">
             {errors.name?.message}
           </p>
-        </div>
-        <div className="form-field">
-          <div>
-            <label htmlFor="">Email</label>
-            <input
-              className="dark:bg-slate-700 dark:border-none"
-              type="email"
-              placeholder="email"
-              {...register("email")}
-            />
-          </div>
+        </label>
+        <label className="">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+            Email
+          </span>
+          <input
+            type="email"
+            name="email"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="you@example.com"
+            {...register("email")}
+          />
           <p className="error text-sm text-red-400 text-end p-2">
             {errors.email?.message}
           </p>
-        </div>
-        <div className="form-field">
-          <div>
-            <label htmlFor="">Address</label>
-            <input
-              className="dark:bg-slate-700 dark:border-none"
-              type="text"
-              placeholder="address"
-              {...register("address")}
-            />
-          </div>
+        </label>
+        <label className="">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+            Delivery Address
+          </span>
+          <input
+            type="text"
+            name="address"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Sesame Street 1"
+            {...register("address")}
+          />
           <p className="error text-sm text-red-400 text-end p-2">
             {errors.address?.message}
           </p>
-        </div>
-        <div className="form-field">
-          <div>
-            <label htmlFor="">Credit card number</label>
-            <input
-              type="tel"
-              placeholder="credit card number"
-              {...register("cc")}
-              className="dark:bg-slate-700 dark:border-none"
-            />
-          </div>
+        </label>
+        <label className="">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+            Credit Card Number
+          </span>
+          <input
+            type="tel"
+            name="cc"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="1234567890"
+            {...register("cc")}
+          />
           <p className="error text-sm text-red-400 text-end p-2">
             {errors.cc?.message}
           </p>
-        </div>
+        </label>
 
         <div className="flex">
           <button className="btn-primary text-white mt-6 mx-auto">

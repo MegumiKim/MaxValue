@@ -1,7 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import { FaFilter } from "react-icons/fa";
-import Filters from "./Filters";
 
 export default function ProductList(items) {
   const products = items.products.map((item) => (

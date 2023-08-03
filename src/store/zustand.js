@@ -10,7 +10,9 @@ const defaultCart = {
 export const useStore = create(
   persist(
     (set) => ({
-      defaultCart,
+      cartItems: [],
+      total: 0,
+      totalQty: 0,
       addToCart: (item, qty = 1) =>
         set((state) => {
           const updatedCartItems = updateCart(state.cartItems, item, qty);
@@ -23,13 +25,13 @@ export const useStore = create(
             totalQty: updatedTotalQty,
           };
         }),
-      clearCart: () => set(defaultCart),
+      clearCart: () => set({ cartItems: [], total: 0, totalQty: 0 }),
       removeFromCart: (item) =>
         set((state) => {
           const updatedCartItems = remove(state.cartItems, item);
           const updatedTotal = calculateTotal(updatedCartItems);
           const updatedTotalQty = countTotalQty(updatedCartItems);
-          console.log(updatedTotal);
+          // console.log(updatedTotal);
           return {
             cartItems: updatedCartItems,
             total: updatedTotal,
@@ -46,18 +48,22 @@ export const useStore = create(
 
 function updateCart(cartItems, itemToAdd, qty) {
   const itemExists = (item) => item.id === itemToAdd.id;
-  const existingItemIndex = cartItems.findIndex(itemExists);
+  if (cartItems) {
+    const existingItemIndex = cartItems.findIndex(itemExists);
 
-  if (existingItemIndex !== -1) {
-    const updatedCartItems = [...cartItems];
-    updatedCartItems[existingItemIndex] = {
-      ...updatedCartItems[existingItemIndex],
-      qty: updatedCartItems[existingItemIndex].qty + qty,
-    };
+    if (existingItemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex] = {
+        ...updatedCartItems[existingItemIndex],
+        qty: updatedCartItems[existingItemIndex].qty + qty,
+      };
 
-    return updatedCartItems;
+      return updatedCartItems;
+    }
+    return [...cartItems, { ...itemToAdd, qty }];
+  } else {
+    console.log("bug");
   }
-  return [...cartItems, { ...itemToAdd, qty }];
 }
 
 function remove(cartItems, itemToRemove) {

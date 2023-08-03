@@ -1,105 +1,94 @@
-import React, { useState } from "react";
+import React, { createElement, useState } from "react";
+import { FaFilter } from "react-icons/fa";
+import { useFilterStore } from "../../../store/filterStore";
+import Category from "./Category";
 
 export default function Filters() {
-  const [category, setCategory] = useState("All");
+  const { setCategory } = useFilterStore();
 
   const handleChange = (event) => {
     const value = event.target.value;
-    console.log(value);
+    setCategory(value);
   };
 
   return (
-    <div className="my-6">
-      <fieldset>
-        <legend>Category</legend>
-        <div className="flex gap-4">
-          <div>
-            <input type="radio" id="all" name="category" value="all" />
-            <label htmlFor="all">All</label>
+    <div className="my-6 flex flex-col gap-6 ms-2">
+      <label
+        htmlFor="filterOpen"
+        className="outline outline-2 p-2 rounded-md w-fit flex gap-2"
+      >
+        <FaFilter className="m-auto" />
+        Filter
+      </label>
+      <input
+        type="checkbox"
+        id="filterOpen"
+        className="peer/filterDropdown hidden pt-4"
+      />
+      <div
+        id="filterDropdown"
+        className="hidden peer-checked/filterDropdown:block "
+      >
+        <fieldset>
+          <legend>Categories</legend>
+          <div className="flex gap-4">
+            <Category category="all" onChange={handleChange}></Category>
+            <Category category="electronics" onChange={handleChange}></Category>
+            <Category category="cosmetics" onChange={handleChange}></Category>
+            <Category category="groceries" onChange={handleChange}></Category>
+            <Category category="women" onChange={handleChange}></Category>
+            <Category category="men" onChange={handleChange}></Category>
+            <Category category="decorations" onChange={handleChange}></Category>
+            <Category category="others" onChange={handleChange}></Category>
           </div>
-          <div>
-            <input
-              type="radio"
-              id="electronics"
-              name="category"
-              value="electronics"
-            />
-            <label htmlFor="electronics">Digital</label>
+        </fieldset>
+
+        <fieldset className="">
+          <legend>Sort By</legend>
+          <div className="flex gap-4">
+            <div>
+              <input
+                type="radio"
+                id="categories"
+                name="sort"
+                value="categories"
+                onChange={handleChange}
+              />
+              <label htmlFor="categories">Categories</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="lowestFirst"
+                name="sort"
+                value="lowestFirst"
+                onChange={handleChange}
+              />
+              <label htmlFor="lowestFirst">Lowest Price First</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="highestFirst"
+                name="sort"
+                value="highestFirst"
+                onChange={handleChange}
+              />
+              <label htmlFor="highestFirst">Highest Price First</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="highestDiscountRate"
+                name="sort"
+                value="highestDiscountRate"
+                onChange={handleChange}
+              />
+              <label htmlFor="highestDiscountRate">Highest Discount Rate</label>
+            </div>
           </div>
-          <div>
-            <input
-              type="radio"
-              id="Cosmetics/Perfumes"
-              name="category"
-              value="Cosmetics/Perfumes"
-            />
-            <label htmlFor="Cosmetics/Perfumes">Cosmetics/Perfumes</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="Glossaries"
-              name="category"
-              value="Glossaries"
-            />
-            <label htmlFor="Glossaries">Glossaries</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="Interior/Decorations"
-              name="category"
-              value="Interior/Decorations"
-            />
-            <label htmlFor="Interior/Decorations">Interior/Decorations</label>
-          </div>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Sort By</legend>
-        <div className="flex gap-4">
-          <div>
-            <input
-              type="radio"
-              id="categories"
-              name="sort"
-              value="categories"
-              onChange={handleChange}
-            />
-            <label htmlFor="categories">Categories</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="lowestFirst"
-              name="sort"
-              value="lowestFirst"
-              onChange={handleChange}
-            />
-            <label htmlFor="lowestFirst">Lowest Price First</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="highestFirst"
-              name="sort"
-              value="highestFirst"
-              onChange={handleChange}
-            />
-            <label htmlFor="highestFirst">Highest Price First</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="highestDiscountRate"
-              name="sort"
-              value="highestDiscountRate"
-              onChange={handleChange}
-            />
-            <label htmlFor="highestDiscountRate">Highest Discount Rate</label>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useProductStore } from "../../../../store/productsStore";
 import { Link } from "react-router-dom";
 
 export default function SearchBar() {
-  const products = useProductStore((state) => state.products);
+  const { products } = useProductStore();
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -11,9 +11,12 @@ export default function SearchBar() {
     setSearchTerm(event.target.value);
   };
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
-  );
+  const filteredProducts =
+    products && Array.isArray(products)
+      ? products.filter((product) =>
+          product.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : [];
 
   const productsList = filteredProducts.map((product) => {
     return (
