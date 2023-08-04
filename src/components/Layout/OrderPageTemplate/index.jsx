@@ -5,7 +5,7 @@ import { Footer } from "../Footer";
 
 export function OrderPageTemplate() {
   return (
-    <div className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-slate-950">
+    <div className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-zinc-800">
       <Header />
       <Outlet />
       <Footer />

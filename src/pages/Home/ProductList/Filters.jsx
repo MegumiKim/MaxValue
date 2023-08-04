@@ -14,7 +14,7 @@ export default function Filters() {
   return (
     <div className="mx-auto my-10 flex flex-col gap-6 md:max-w-xl ">
       <fieldset>
-        <legend className="text-xl mb-4">Categories</legend>
+        <legend className="text-2xl mb-4 mx-auto">Categories</legend>
         <div className="flex gap-4 flex-wrap justify-start ">
           <Category category="all" onChange={handleChange}></Category>
           <Category category="women" onChange={handleChange}></Category>

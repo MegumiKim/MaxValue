@@ -44,10 +44,11 @@ img {
 
 .hero {
   background-image: url(../public/assets/tamanna-rumee-hGLc8L-EcCM-unsplash.jpg);
-  min-height: 35vh;
+  min-height: 45vh;
   background-position: center;
   background-size: cover;
 }
+
 td,
 .form-field {
   padding-top: 1rem;

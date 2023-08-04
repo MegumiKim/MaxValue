@@ -1,7 +1,7 @@
 export default function formattedNOK(number) {
-  return new Intl.NumberFormat("en-DE", {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "NOK",
+    currency: "USD",
     maximumFractionDigits: 0,
   }).format(number);
 }

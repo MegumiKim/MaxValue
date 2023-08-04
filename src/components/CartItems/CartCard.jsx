@@ -13,7 +13,7 @@ export default function CartCard({ data }) {
   };
 
   return (
-    <div className="flex mb-4 pb-4 border-b-2 border-opacity-30 border-slate-400">
+    <div className="flex mb-4 pb-4 border-b-2 border-opacity-30 border-slate-400 gap-3">
       <div className="flex-1 max-h-24">
         <img
           src={data.thumbnail}
@@ -21,12 +21,9 @@ export default function CartCard({ data }) {
           className="max-h-full object-cover m-auto"
         />
       </div>
-      <div className="flex flex-col flex-1 justify-center">
-        <div className="">
-          <Link
-            to={"/product/" + data.id}
-            className="text-lg font-bold hover:underline"
-          >
+      <div className="flex flex-col flex-1 justify-center truncate">
+        <div className=" truncate">
+          <Link to={"/product/" + data.id} className="text-lg hover:underline">
             {data.title}
           </Link>
           <div className="flex gap-4 justify-between">

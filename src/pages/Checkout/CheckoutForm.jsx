@@ -42,13 +42,13 @@ export default function CheckoutForm() {
         <legend className=" text-2xl mb-6">Payment Details</legend>
 
         <label className="">
-          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium  text-slate-700  dark:text-slate-400">
             Full Name
           </span>
           <input
             type="text"
             name="name"
-            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1 "
             placeholder="John Doe"
             {...register("name")}
           />
@@ -57,13 +57,13 @@ export default function CheckoutForm() {
           </p>
         </label>
         <label className="">
-          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium  text-slate-700 dark:text-slate-400">
             Email
           </span>
           <input
             type="email"
             name="email"
-            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1 "
             placeholder="you@example.com"
             {...register("email")}
           />
@@ -72,13 +72,13 @@ export default function CheckoutForm() {
           </p>
         </label>
         <label className="">
-          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium  text-slate-700 dark:text-slate-400">
             Delivery Address
           </span>
           <input
             type="text"
             name="address"
-            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1 "
             placeholder="Sesame Street 1"
             {...register("address")}
           />
@@ -87,13 +87,13 @@ export default function CheckoutForm() {
           </p>
         </label>
         <label className="">
-          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium text-slate-700">
+          <span className=" after:content-['*'] after:ml-0.5 after:text-red-500  text-sm font-medium  text-slate-700 dark:text-slate-400">
             Credit Card Number
           </span>
           <input
             type="tel"
             name="cc"
-            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1"
+            className="dark:bg-slate-700 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500  w-full rounded-md sm:text-sm focus:ring-1 "
             placeholder="1234567890"
             {...register("cc")}
           />

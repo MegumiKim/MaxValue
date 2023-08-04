@@ -24,7 +24,7 @@ function Home() {
   return (
     <main className="m-auto md:max-w-screen-lg ">
       <section className="hero flex justify-end"></section>
-      <div className="px-3 md:px-0 ">
+      <div className="px-3 md:mx-4">
         <Filters />
         <ProductList products={categoryFilter(data.products, category)} />
         {/* <ProductList products={products} /> */}

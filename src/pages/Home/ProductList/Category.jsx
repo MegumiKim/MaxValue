@@ -4,7 +4,7 @@ export default function Category(props) {
   const category = props.category;
 
   return (
-    <div className="m-auto basis-24 flex-grow flex outline outline-1 rounded-2xl py-2 px-2 w-fit text-sm md:text-base md:w-36 whitespace-normal hover:text-red-400">
+    <div className="m-auto basis-24 flex-grow flex outline outline-2 rounded-2xl py-2 px-2 w-fit text-sm md:text-base md:w-36 whitespace-normal hover:text-red-400">
       <input
         type="radio"
         id={category}
