@@ -4,9 +4,9 @@ import { useApi } from "../../hooks/api.js";
 import { baseURL } from "../../hooks/constants.js";
 import Loader from "../../components/ui/Loader.jsx";
 import { useProductStore } from "../../store/productsStore.js";
-import Filters from "./ProductList/Filters.jsx";
+import Filters from "./ProductList/filters/Filters.jsx";
 import { useFilterStore } from "../../store/filterStore.js";
-import categoryFilter from "../../utils/categoryFilter.js";
+import SortOptions from "./ProductList/filters/SortOptions.jsx";
 
 function Home() {
   const { data, loading } = useApi(baseURL + "/?limit=0");
@@ -26,8 +26,8 @@ function Home() {
       <section className="hero flex justify-end"></section>
       <div className="px-3 md:mx-4">
         <Filters />
-        <ProductList products={categoryFilter(data.products, category)} />
-        {/* <ProductList products={products} /> */}
+        <SortOptions />
+        <ProductList products={data.products} />
       </div>
     </main>
   );
