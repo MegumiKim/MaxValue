@@ -15,7 +15,9 @@ export default function CheckoutSuccess() {
 
   return (
     <main className="md:mx-auto px-4 mt-10 h-screen">
-      <h1 className="text-4xl mb-8 mx-auto">Thank you for your order!</h1>
+      <h1 className="text-4xl mb-8 mx-auto font-bold">
+        Thank you for your order!
+      </h1>
       <div className="flex flex-col gap-14 md:flex-row m-auto text-center">
         <div className="flex">
           <Link to="/" className="mx-auto md:mx-0 my-auto btn-outlined">

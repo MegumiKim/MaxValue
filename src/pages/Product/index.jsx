@@ -58,7 +58,7 @@ function Product() {
               ))}
           </div>
         </div>
-        <div className="p-4 md:p-0 flex-1">
+        <div className="px-4 md:px-10md:p-0 flex-1 mx-auto max-w-md mt-6">
           <p className="mb-6">{data.description}</p>
           <div className="flex justify-between">
             <div>

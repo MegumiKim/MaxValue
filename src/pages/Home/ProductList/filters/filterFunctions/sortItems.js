@@ -1,6 +1,4 @@
 export default function sortItems(products, order) {
-  console.log(order);
-
   switch (order) {
     case "lowestPrice":
       return products.sort((a, b) => a.price - b.price);

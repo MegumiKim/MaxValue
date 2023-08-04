@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-
 import { useFilterStore } from "../../../store/filterStore.js";
 import categoryFilter from "./filters/filterFunctions/categoryFilter.js";
 import sortItems from "./filters/filterFunctions/sortItems";
@@ -13,7 +12,6 @@ export default function ProductList(items) {
   const filteredProducts = categoryFilter(items.products, category);
   const sortedProducts = sortItems(filteredProducts, sort);
 
-  console.log(sortedProducts);
   const productsToDisplay = sortedProducts.map((item) => (
     <Card item={item} key={item.id} />
   ));

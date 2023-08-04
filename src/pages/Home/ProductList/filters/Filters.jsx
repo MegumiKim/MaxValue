@@ -7,14 +7,13 @@ export default function Filters() {
   const { setCategory } = useFilterStore();
 
   const handleChange = (event) => {
-    console.log(event.target);
     setCategory(event.target.value);
   };
 
   return (
     <div className="mx-auto my-10 flex flex-col gap-6 ">
       <fieldset>
-        <legend className="text-2xl mb-4 ">Categories</legend>
+        <legend className="text-2xl mb-4 font-bold">Categories</legend>
         <div className="flex gap-4 flex-wrap justify-start ">
           <Category category="all" onChange={handleChange}></Category>
           <Category category="women" onChange={handleChange}></Category>

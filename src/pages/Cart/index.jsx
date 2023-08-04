@@ -9,8 +9,7 @@ function Cart() {
 
   return (
     <main className="md:mx-auto px-10 my-10 min-h-screen min-w-full">
-      {/* <main className="md:max-w-screen-lg mx-auto px-10 min-w-fit"> */}
-      <h1 className="text-4xl mb-6">My Cart</h1>
+      <h1 className="text-4xl mb-6 font-bold">My Cart</h1>
       {cartItems.length ? (
         <div>
           <div className="md:flex mb-10 gap-10">

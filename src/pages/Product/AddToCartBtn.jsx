@@ -13,8 +13,6 @@ export default function AddToCartBtn(props) {
 
   const addToCart = useStore((state) => state.addToCart);
 
-  // const qty = document.getElementById("qty").value;
-
   const handleAddToCart = () => {
     addToCart(data, qty);
     setItemAdded(true);
@@ -28,7 +26,7 @@ export default function AddToCartBtn(props) {
             {productName} is Added in Your Bag
           </p>
 
-          <div className="flex gap-4 my-4 align-middle">
+          <div className="my-4 flex flex-col gap-4">
             <button className="btn-primary" onClick={() => navigate("/cart")}>
               Check My Cart
             </button>

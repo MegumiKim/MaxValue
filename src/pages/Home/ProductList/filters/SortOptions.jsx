@@ -7,13 +7,12 @@ export default function SortOptions() {
   const { setSortBy } = useSortStore();
 
   const handleSortChange = (event) => {
-    console.log(event.target.value);
     setSortBy(event.target.value);
   };
 
   return (
     <div className="flex justify-end">
-      <div className="relative">
+      <div className="relative ">
         <label htmlFor="filterOpen" className="p-2 rounded-md w-fit flex gap-2">
           <FaFilter className="m-auto" />
           Sort Items
@@ -25,11 +24,11 @@ export default function SortOptions() {
         />
         <fieldset
           id="filterDropdown"
-          className="absolute hidden peer-checked/filterDropdown:block z-10 bg-white dark:bg-zinc-800 right-0 p-4 rounded"
+          className="absolute hidden peer-checked/filterDropdown:block z-10 bg-white dark:bg-zinc-800 right-0 p-4 divide-y pt-0 pe-0 "
         >
           <SortOption
-            option="categories"
-            name="Categories"
+            option="discountRate"
+            name="Discount Rate"
             sortChange={handleSortChange}
           />
           <SortOption
