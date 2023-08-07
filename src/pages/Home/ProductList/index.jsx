@@ -1,26 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import { useFilterStore } from "../../../store/filterStore.js";
 import categoryFilter from "./filters/filterFunctions/categoryFilter.js";
 import sortItems from "./filters/filterFunctions/sortItems";
-import { useSortStore } from "../../../store/sortStore";
+import Pagination from "../pagination/pagination";
+import Filters from "./filters/Filters";
+import SortOptions from "./filters/sortFunction/SortOptions";
 
-export default function ProductList(items) {
-  const { category } = useFilterStore();
-  const { sort } = useSortStore();
+export default function ProductList({ products }) {
+  // Category Filter
+  const [category, setCategory] = useState("all");
+  const filteredProducts = categoryFilter(products, category);
+  // Handle category change
+  const changeCategory = (newCategory) => {
+    setCategory(newCategory);
+    setCurrentPage(1);
+  };
 
-  const filteredProducts = categoryFilter(items.products, category);
-  const sortedProducts = sortItems(filteredProducts, sort);
+  // Sort
+  const [sortOrder, setSortOrder] = useState("");
+  const sortedProducts = sortItems(filteredProducts, sortOrder);
+  // Handle sort order change
+  const changeSortOrder = (sortOrder) => setSortOrder(sortOrder);
 
-  const productsToDisplay = sortedProducts.map((item) => (
+  // Go back to the first page when category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [category]);
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItems = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedProducts.slice(indexOfFirstItems, indexOfLastItem);
+
+  const productsToDisplay = currentItems.map((item) => (
     <Card item={item} key={item.id} />
   ));
 
   return (
-    <div className="">
+    <section className="mt-5 mx-4 md:mt-1">
+      <Filters changeCategory={changeCategory} currentCat={category} />
+
+      <SortOptions changeSortOrder={changeSortOrder} />
+
       <div className="grid sm:gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-4 md:gap-y-8">
         {productsToDisplay}
       </div>
-    </div>
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        totalItems={sortedProducts.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
+    </section>
   );
 }

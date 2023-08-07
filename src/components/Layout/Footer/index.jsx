@@ -1,8 +1,8 @@
 import React from "react";
 export function Footer() {
   return (
-    <footer className="bg-dark-blue text-white p-4 text-center bottom-0 sticky w-full">
-      Copy Right 2023
+    <footer className="bg-zinc-800 text-white p-6 my-6 text-center bottom-0 w-full">
+      Copy Right © Megumi K
     </footer>
   );
 }

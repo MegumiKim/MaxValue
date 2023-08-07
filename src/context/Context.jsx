@@ -6,10 +6,10 @@ export const Context = (props) => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-    } else {
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
       setTheme("light");
+    } else {
+      setTheme("dark");
     }
   }, []);
 

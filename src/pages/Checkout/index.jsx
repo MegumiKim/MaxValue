@@ -10,8 +10,8 @@ function Checkout() {
       <div className="flex flex-col md:flex-row align-top gap-16 md:gap-16">
         <CheckoutForm />
         <div className="w-min m-auto">
-          <CartItemsCheckout />
           <OrderSummary />
+          <CartItemsCheckout />
         </div>
       </div>
     </main>

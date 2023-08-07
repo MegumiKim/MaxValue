@@ -1,11 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-const defaultCart = {
-  cartItems: [],
-  total: 0,
-  totalQty: 0,
-};
+import { produce } from "immer";
 
 export const useStore = create(
   persist(
@@ -25,19 +20,36 @@ export const useStore = create(
             totalQty: updatedTotalQty,
           };
         }),
-      clearCart: () => set({ cartItems: [], total: 0, totalQty: 0 }),
-      removeFromCart: (item) =>
+
+      changeQty: (item, newQty) =>
         set((state) => {
-          const updatedCartItems = remove(state.cartItems, item);
+          const updatedCartItems = updateCartItemQty(
+            state.cartItems,
+            item,
+            newQty
+          );
           const updatedTotal = calculateTotal(updatedCartItems);
           const updatedTotalQty = countTotalQty(updatedCartItems);
-          // console.log(updatedTotal);
           return {
             cartItems: updatedCartItems,
             total: updatedTotal,
             totalQty: updatedTotalQty,
           };
         }),
+
+      removeFromCart: (item) =>
+        set((state) => {
+          const updatedCartItems = remove(state.cartItems, item);
+          const updatedTotal = calculateTotal(updatedCartItems);
+          const updatedTotalQty = countTotalQty(updatedCartItems);
+
+          return {
+            cartItems: updatedCartItems,
+            total: updatedTotal,
+            totalQty: updatedTotalQty,
+          };
+        }),
+      clearCart: () => set({ cartItems: [], total: 0, totalQty: 0 }),
     }),
     {
       name: "cart",
@@ -62,8 +74,19 @@ function updateCart(cartItems, itemToAdd, qty) {
     }
     return [...cartItems, { ...itemToAdd, qty }];
   } else {
-    console.log("bug");
+    throw new Error();
   }
+}
+
+function updateCartItemQty(cartItems, itemToUpdate, newQty) {
+  const itemExists = (item) => item.id === itemToUpdate.id;
+  const existingItemIndex = cartItems.findIndex(itemExists);
+  const updatedCartItems = [...cartItems];
+  updatedCartItems[existingItemIndex] = {
+    ...updatedCartItems[existingItemIndex],
+    qty: newQty,
+  };
+  return updatedCartItems;
 }
 
 function remove(cartItems, itemToRemove) {
@@ -80,3 +103,29 @@ function calculateTotal(cartItems) {
 function countTotalQty(cartItems) {
   return cartItems.reduce((totalQty, cartItem) => totalQty + cartItem.qty, 0);
 }
+
+export default useStore;
+
+// Try to combine functions
+
+// function updateCartState(cartItems, itemToUpdate, qty, shouldRemove = false) {
+//   const updatedCartItems = [...cartItems];
+//   const existingCartItemIndex = cartItems.findIndex(
+//     (item) => item.id === itemToUpdate.id
+//   );
+
+//   if (existingCartItemIndex === -1) {
+//     return [...cartItems, { ...itemToUpdate, qty }];
+//   } else if (existingCartItemIndex !== -1 && !shouldRemove) {
+//     return (updatedCartItems[existingCartItemIndex] = {
+//       ...updatedCartItems[existingCartItemIndex],
+//       qty: updatedCartItems[existingCartItemIndex].qty + qty,
+//     });
+//   } else if (existingCartItemIndex !== -1 && shouldRemove) {
+//     const updatedCartItems = updatedCartItems.filter(
+//       (item) => item.id !== itemToUpdate.id
+//     );
+
+//     console.log("other case");
+//   }
+// }

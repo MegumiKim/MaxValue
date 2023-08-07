@@ -5,7 +5,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "dark-blue": "#0F1111",
+        blue: "#339dc7",
+        pink: "#eab9bd;",
         primary: "#FF6363",
         secondary: {
           100: "#E2E2D5",

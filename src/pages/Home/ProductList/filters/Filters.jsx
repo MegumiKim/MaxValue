@@ -1,30 +1,22 @@
 import React from "react";
+import categories from "./categories";
 
-import { useFilterStore } from "../../../../store/filterStore";
-import Category from "./Category";
-
-export default function Filters() {
-  const { setCategory } = useFilterStore();
-
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-  };
-
+export default function Filters({ changeCategory, currentCat }) {
   return (
-    <div className="mx-auto my-10 flex flex-col gap-6 ">
-      <fieldset>
-        <legend className="text-2xl mb-4 font-bold">Categories</legend>
-        <div className="flex gap-4 flex-wrap justify-start ">
-          <Category category="all" onChange={handleChange}></Category>
-          <Category category="women" onChange={handleChange}></Category>
-          <Category category="men" onChange={handleChange}></Category>
-          <Category category="cosmetics" onChange={handleChange}></Category>
-          <Category category="groceries" onChange={handleChange}></Category>
-          <Category category="electronics" onChange={handleChange}></Category>
-          <Category category="decorations" onChange={handleChange}></Category>
-          <Category category="others" onChange={handleChange}></Category>
-        </div>
-      </fieldset>
+    <div className="mx-auto  flex flex-col ">
+      <div className="flex gap-4 flex-wrap">
+        {categories.map((cat) => (
+          <button
+            key={cat.category}
+            className={`cursor-pointer basis-20 outline outline-4 outline-pink rounded-2xl py-1 px-2 text-center hover:outline-blue hover:text-blue ${
+              currentCat === cat.category && "bg-pink text-slate-700 "
+            }`}
+            onClick={() => changeCategory(cat.category)}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

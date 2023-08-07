@@ -1,9 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import OrderSummary from "../../components/OrderSummary";
-import CartItems from "../../components/CartItems";
-import { useStore } from "../../store/zustand";
-import { btnStyles } from "../../styles/tailwindClasses";
 import { useUserInfoStore } from "../../store/userInfoStore";
 
 export default function CheckoutSuccess() {
@@ -13,6 +9,8 @@ export default function CheckoutSuccess() {
   const today = date.toLocaleDateString();
   date.setDate(date.getDate() + 3);
 
+  const orderNumber = Math.floor(Math.random() * 1000000);
+
   return (
     <main className="md:mx-auto px-4 mt-10 h-screen">
       <h1 className="text-4xl mb-8 mx-auto font-bold">
@@ -20,7 +18,7 @@ export default function CheckoutSuccess() {
       </h1>
       <div className="flex flex-col gap-14 md:flex-row m-auto text-center">
         <div className="flex">
-          <Link to="/" className="mx-auto md:mx-0 my-auto btn-outlined">
+          <Link to="/" className="mx-auto md:mx-0 my-auto btn-primary ">
             Back To Home
           </Link>
         </div>
@@ -42,6 +40,10 @@ export default function CheckoutSuccess() {
             <tr>
               <td>Expected Delivery</td>
               <td>{date.toLocaleDateString()}</td>
+            </tr>
+            <tr>
+              <td>Order Number</td>
+              <td>{orderNumber}</td>
             </tr>
           </tbody>
         </table>

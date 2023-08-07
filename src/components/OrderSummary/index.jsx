@@ -5,10 +5,10 @@ import formattedNOK from "../../utils/currecyFormat";
 export default function OrderSummary() {
   const total = useStore((state) => state.total);
   const totalQty = useStore((state) => state.totalQty);
-  const shipping = 35;
+  const shipping = 10;
 
   return (
-    <table className="order-2 md:order-1 max-w-lg mx-auto border-separate border-spacing-x-10 border">
+    <table className="order-2 md:order-1 max-w-sm mx-auto border-separate sm:border-spacing-x-10 border px-4 sm:px-0 pb-4 rounded-lg">
       <caption>
         <h2 className="text-2xl mb-5">Order Summary</h2>
       </caption>
@@ -23,7 +23,7 @@ export default function OrderSummary() {
           <td className="text-end">{formattedNOK(total)} </td>
         </tr>
         <tr>
-          <td>VAT (15%)</td>
+          <td>VAT (15%, included)</td>
           <td className="text-end">{formattedNOK(total * 0.15)}</td>
         </tr>
         <tr>

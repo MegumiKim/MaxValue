@@ -7,5 +7,7 @@ export default function CartItems() {
   const cartCards = cartItems.map((item) => (
     <CartCardCheckout data={item} key={item.id} />
   ));
-  return <div className="m-auto ">{cartCards}</div>;
+  return (
+    <div className="m-auto overflow-y-scroll md:max-h-80 my-6">{cartCards}</div>
+  );
 }

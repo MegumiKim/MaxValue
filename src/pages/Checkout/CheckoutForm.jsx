@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { checkoutSchema } from "./formValidation";
-import { btnPrimary, btnStyles } from "../../styles/tailwindClasses";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../../store/zustand";
 import { useUserInfoStore } from "../../store/userInfoStore.js";

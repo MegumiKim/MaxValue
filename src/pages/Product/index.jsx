@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useApi } from "../../hooks/api";
 import { baseURL } from "../../hooks/constants";
 import AddToCartBtn from "./AddToCartBtn";
@@ -26,8 +26,11 @@ function Product() {
   };
 
   return (
-    <main className="sm:mx-10 min-h-screen">
-      <div className="mx-6 my-4">
+    <main className="mx-6 lg:mx-auto min-h-screen md:max-w-screen-lg ">
+      <button onClick={() => history.back()} className="underline">
+        Go Back
+      </button>
+      <div className=" mt-10">
         <small>
           {data.brand} / {data.category}
         </small>
@@ -60,12 +63,12 @@ function Product() {
         </div>
         <div className="px-4 md:px-10md:p-0 flex-1 mx-auto max-w-md mt-6">
           <p className="mb-6">{data.description}</p>
-          <div className="flex justify-between">
-            <div>
-              <p className="font-semibold text-2xl text-red-600">
+          <div className="flex justify-between mb-10">
+            <div className="flex gap-3 align-middle ">
+              <p className="font-semibold text-2xl text-red-500 ">
                 {formattedNOK(data.price)}
               </p>
-              <var className="text-red-500">{data.discountPercentage}% off</var>
+              <var className="m-auto ">{data.discountPercentage}% off</var>
             </div>
             <div>
               <p>In Stock: {data.stock}</p>
