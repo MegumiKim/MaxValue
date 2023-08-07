@@ -11,7 +11,7 @@ export default function CartIcon() {
       <Link to="/cart">
         <FaCartPlus />
         {totalQty > 0 && (
-          <span className="pill-badge leading-none dark:outline-white">
+          <span className="pill-badge leading-none dark:outline-white outline-none">
             {totalQty}
           </span>
         )}

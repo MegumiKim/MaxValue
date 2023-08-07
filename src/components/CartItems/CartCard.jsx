@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import useStore from "../../store/zustand";
 // import { useStore } from "../../store/zustand";
-import formattedNOK from "../../utils/currecyFormat";
+import currencyFormat from "../../utils/currecyFormat";
 import { Link } from "react-router-dom";
 
 export default function CartCard({ data }) {
@@ -24,7 +24,7 @@ export default function CartCard({ data }) {
         >
           {data.title}
         </Link>
-        <p className="">{formattedNOK(data.price)} </p>
+        <p className="">{currencyFormat(data.price)} </p>
 
         <div className="flex mx-auto md:mx-0 justify-between gap-6">
           <form className="align-middle flex my-4 ">
@@ -50,7 +50,7 @@ export default function CartCard({ data }) {
         </div>
 
         <p className="border-t-2 border-dotted dark:border-slate-600 pt-3 text-end">
-          Total: {formattedNOK(data.qty * data.price)}
+          Total: {currencyFormat(data.qty * data.price)}
         </p>
       </div>
     </div>

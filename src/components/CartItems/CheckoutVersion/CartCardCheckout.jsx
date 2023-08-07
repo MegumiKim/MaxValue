@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import formattedNOK from "../../../utils/currecyFormat";
+import currencyFormat from "../../../utils/currecyFormat";
 
 export default function CartCard({ data }) {
   return (
@@ -17,7 +17,7 @@ export default function CartCard({ data }) {
           <h3 className="text-lg truncate">{data.title}</h3>
           <div className="flex gap-4 justify-between">
             <div className="flex gap-5">
-              <p className="">{formattedNOK(data.price)} </p>
+              <p className="">{currencyFormat(data.price)} </p>
               <p>qty: {data.qty}</p>
             </div>
           </div>

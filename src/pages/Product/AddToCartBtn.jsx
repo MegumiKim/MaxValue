@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useStore } from "../../store/zustand";
 import { Link, useNavigate } from "react-router-dom";
-import formattedNOK from "../../utils/currecyFormat";
+import currencyFormat from "../../utils/currecyFormat";
 export default function AddToCartBtn(props) {
   const [itemAdded, setItemAdded] = useState(false);
   const [qty, setQty] = useState(1);
@@ -37,7 +37,7 @@ export default function AddToCartBtn(props) {
         </div>
       ) : (
         <div className="mx-auto md:mx-0 w-full mb-5">
-          <div className="flex justify-between">
+          <div className="sm:flex justify-between">
             <form className="align-middle flex gap-4 my-4 w-min">
               <label className="align-middle text-center md:m-auto">Qty:</label>
               <input
@@ -50,8 +50,8 @@ export default function AddToCartBtn(props) {
                 onChange={(event) => setQty(parseInt(event.target.value))}
               />
             </form>
-            <p className="my-auto dark:border-slate-600 pt-3 text-end">
-              Sub Total: {formattedNOK(qty * data.price)}
+            <p className="my-auto dark:border-slate-600 pb-3 sm:pb-0 sm:text-end">
+              Sub Total: {currencyFormat(qty * data.price)}
             </p>
           </div>
           <button

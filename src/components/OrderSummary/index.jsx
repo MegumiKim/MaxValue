@@ -1,6 +1,6 @@
 import React from "react";
 import { useStore } from "../../store/zustand";
-import formattedNOK from "../../utils/currecyFormat";
+import currencyFormat from "../../utils/currecyFormat";
 
 export default function OrderSummary() {
   const total = useStore((state) => state.total);
@@ -20,20 +20,22 @@ export default function OrderSummary() {
         </tr>
         <tr>
           <td>Sub Total</td>
-          <td className="text-end">{formattedNOK(total)} </td>
+          <td className="text-end">{currencyFormat(total)} </td>
         </tr>
         <tr>
           <td>VAT (15%, included)</td>
-          <td className="text-end">{formattedNOK(total * 0.15)}</td>
+          <td className="text-end">{currencyFormat(total * 0.15)}</td>
         </tr>
         <tr>
           <td>Shipping</td>
-          <td className="text-end">{formattedNOK(shipping)} </td>
+          <td className="text-end">{currencyFormat(shipping)} </td>
         </tr>
 
         <tr className="text-xl border border-t-4 border-slate-600 ">
           <td className="pt-3 ">Grand Total</td>
-          <td className="pt-3 text-end ">{formattedNOK(total + shipping)} </td>
+          <td className="pt-3 text-end ">
+            {currencyFormat(total + shipping)}{" "}
+          </td>
         </tr>
       </tbody>
     </table>

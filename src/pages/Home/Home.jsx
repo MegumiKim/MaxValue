@@ -19,7 +19,12 @@ function Home() {
 
   return (
     <main className="m-auto md:max-w-screen-lg md:flex ">
-      <section className="hero flex justify-end w-full md:w-2/5"></section>
+      <section className="hero flex w-full md:w-2/5 ">
+        <div className="my-auto px-6 text-xl w-full flex flex-wrap justify-between md:hidden gap-4">
+          <h1 className="hero-text"> Any Time</h1>
+          <h1 className="hero-text ">Anywhere</h1>
+        </div>
+      </section>
       <ProductList products={data.products} />
     </main>
   );

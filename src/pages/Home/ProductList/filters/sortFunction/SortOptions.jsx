@@ -38,7 +38,7 @@ export default function SortOptions({ changeSortOrder }) {
   ));
 
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-end my-3">
       <div className="relative ">
         <button
           onClick={() => handleClick()}

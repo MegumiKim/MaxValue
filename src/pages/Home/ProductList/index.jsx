@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import categoryFilter from "./filters/filterFunctions/categoryFilter.js";
-import sortItems from "./filters/filterFunctions/sortItems";
-import Pagination from "../pagination/pagination";
-import Filters from "./filters/Filters";
+import categoryFilter from "./filters/categoryFilter/categoryFilter.js";
+import sortItems from "./filters/sortFunction/sortItems";
+import Pagination from "./pagination/pagination";
+import Filters from "./filters/categoryFilter/Categories";
 import SortOptions from "./filters/sortFunction/SortOptions";
 
 export default function ProductList({ products }) {
   // Category Filter
   const [category, setCategory] = useState("all");
   const filteredProducts = categoryFilter(products, category);
+
   // Handle category change
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
@@ -45,7 +46,7 @@ export default function ProductList({ products }) {
 
       <SortOptions changeSortOrder={changeSortOrder} />
 
-      <div className="grid sm:gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-4 md:gap-y-8">
+      <div className="grid sm:gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-4 md:gap-y-2">
         {productsToDisplay}
       </div>
       <Pagination

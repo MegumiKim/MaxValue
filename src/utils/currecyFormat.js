@@ -1,4 +1,4 @@
-export default function formattedNOK(number) {
+export default function currencyFormat(number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

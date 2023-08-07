@@ -15,9 +15,9 @@ export function Header() {
           <Link to="/" className="me-5 text-2xl md:text-5xl logo">
             MaxValue
           </Link>
-          <div className="flex my-auto gap-6 text-xl">
+          <div className="flex my-auto gap-6 text-xl ">
             <CartIcon />
-            <button onClick={toggleTheme}>
+            <button onClick={toggleTheme} className="hover:text-yellow-500">
               {theme === "dark" ? <FaSun /> : <FaMoon />}
             </button>
           </div>

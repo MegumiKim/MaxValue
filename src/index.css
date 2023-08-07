@@ -39,7 +39,10 @@ my-color {
   background-position-y: top;
   background-size: cover;
 }
-
+.hero-text {
+  text-shadow: black 0px 0px 20px;
+  color: white;
+}
 td,
 .form-field {
   padding-top: 1rem;
