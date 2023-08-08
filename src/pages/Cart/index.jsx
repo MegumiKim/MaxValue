@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useStore } from "../../store/zustand";
 import { FaRegSadTear } from "react-icons/fa";
 import OrderSummary from "../../components/OrderSummary";
-import CartCard from "../../components/CartItems/CartCard";
+import CartCard from "./CartCard";
 
 function Cart() {
   const cartItems = useStore((state) => state.cartItems);

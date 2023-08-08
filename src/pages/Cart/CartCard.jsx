@@ -17,10 +17,10 @@ export default function CartCard({ data }) {
           className="w-28 object-cover m-auto rounded-lg"
         />
       </div>
-      <div className="flex-1 flex flex-col divide-y-slate-50">
+      <div className="flex-1 flex flex-col divide-y-slate-50 truncate">
         <Link
           to={"/product/" + data.id}
-          className="text-lg hover:underline truncate"
+          className="text-lg hover:underline truncate font-semibold"
         >
           {data.title}
         </Link>
