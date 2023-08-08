@@ -5,11 +5,11 @@ import CartItemsCheckout from "../../components/CartItems/CheckoutVersion/CartIt
 
 function Checkout() {
   return (
-    <main className="md:mx-auto px-4 my-6 min-h-screen">
+    <main className="md:mx-auto px-4 py-10 md:pb-0 md:max-w-screen-xl lg:max-w-screen-2xl">
       <h1 className="text-3xl md:text-4xl mb-6 font-bold">Check Out</h1>
       <div className="flex flex-col md:flex-row align-top gap-16 md:gap-16">
         <CheckoutForm />
-        <div className="w-min m-auto">
+        <div className="m-auto">
           <OrderSummary />
           <CartItemsCheckout />
         </div>

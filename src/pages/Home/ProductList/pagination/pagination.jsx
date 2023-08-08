@@ -7,7 +7,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
     pageNumbers.push(i);
   }
   return (
-    <nav className="mx-auto my-6 flex max-w-full ">
+    <nav className="mx-auto my-10 md:mb-0 flex max-w-full ">
       <ul className="pagination flex flex-wrap mx-auto outline outline-pink outline-2 rounded-lg divide-x-2 divide-pink ">
         {pageNumbers.map((number) => (
           <li key={number} className="text-lg relative ">

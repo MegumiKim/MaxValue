@@ -12,7 +12,7 @@ export default function CheckoutSuccess() {
   const orderNumber = Math.floor(Math.random() * 1000000);
 
   return (
-    <main className="md:mx-auto px-4 mt-10 h-screen">
+    <main className="md:mx-auto px-4 mt-10 md:max-w-screen-xl lg:max-w-screen-2xl">
       <h1 className="text-4xl mb-8 mx-auto font-bold">
         Thank you for your order!
       </h1>
@@ -22,8 +22,8 @@ export default function CheckoutSuccess() {
             Back To Home
           </Link>
         </div>
-        <table className="mt-6 max-w-md mx-auto border-separate border-spacing-x-10">
-          <caption className="text-xl">Delivery Information</caption>
+        <table className="mt-6 max-w-full mx-auto border-separate border-spacing-x-3 md:border-spacing-x-10">
+          {/* <caption className="text-xl">Delivery Information</caption> */}
           <tbody className="text-start">
             <tr>
               <td>Name</td>
@@ -38,11 +38,11 @@ export default function CheckoutSuccess() {
               <td>{today}</td>
             </tr>
             <tr>
-              <td>Expected Delivery</td>
+              <td>Delivery</td>
               <td>{date.toLocaleDateString()}</td>
             </tr>
             <tr>
-              <td>Order Number</td>
+              <td>Order No.</td>
               <td>{orderNumber}</td>
             </tr>
           </tbody>

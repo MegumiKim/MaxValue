@@ -65,7 +65,7 @@ export default function CheckoutForm() {
             placeholder="you@example.com"
             {...register("email")}
           />
-          <p className="error text-sm text-red-400 text-end p-2">
+          <p className="text-sm text-red-400 text-end p-2">
             {errors.email?.message}
           </p>
         </label>

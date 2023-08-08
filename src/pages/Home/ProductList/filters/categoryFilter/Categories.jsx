@@ -8,7 +8,7 @@ export default function Filters({ changeCategory, currentCat }) {
         {categories.map((cat) => (
           <button
             key={cat.category}
-            className={`cursor-pointer basis-20 flex-grow sm:flex-grow-0 md:basis-16 outline outline-4 outline-pink rounded-2xl py-1 px-2 text-center hover:outline-blue hover:text-blue ${
+            className={`cursor-pointer basis-20 flex-grow sm:flex-grow-0 md:basis-20 xl:basis-28 outline outline-4 outline-pink rounded-2xl py-1 px-2 text-center hover:outline-blue hover:text-blue ${
               currentCat === cat.category && "bg-pink text-slate-700 "
             }`}
             onClick={() => changeCategory(cat.category)}

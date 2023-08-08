@@ -8,6 +8,8 @@ export default function CartItems() {
     <CartCardCheckout data={item} key={item.id} />
   ));
   return (
-    <div className="m-auto overflow-y-scroll md:max-h-80 my-6">{cartCards}</div>
+    <div className="m-auto overflow-y-scroll md:max-h-80 my-10">
+      {cartCards}
+    </div>
   );
 }

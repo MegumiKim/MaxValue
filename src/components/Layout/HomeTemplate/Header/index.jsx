@@ -9,8 +9,8 @@ export function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <header className="w-full h-20 bg-white dark:bg-zinc-800 z-10 p-4">
-      <div className="md:max-w-screen-lg m-auto lg:px-0 sm:flex sm:justify-between ">
+    <header className="mx-auto w-full md:max-w-screen-xl lg:max-w-screen-2xl bg-white dark:bg-zinc-800 p-4 md:mt-4">
+      <div className="m-auto lg:px-0 sm:flex sm:justify-between ">
         <div className="flex justify-between w-full me-4">
           <Link to="/" className="me-5 text-2xl md:text-5xl logo">
             MaxValue
