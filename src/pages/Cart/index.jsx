@@ -9,7 +9,7 @@ function Cart() {
   const cartItems = useStore((state) => state.cartItems);
 
   return (
-    <main className="md:mx-auto px-3 md:px-10 py-10 md:max-w-screen-xl lg:max-w-screen-2xl">
+    <main className="mb-auto md:mx-auto px-3 md:px-10 pt-10 md:max-w-screen-xl lg:max-w-screen-2xl ">
       <button onClick={() => history.back()} className="underline">
         Go Back
       </button>

@@ -3,13 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+/* html {
   height: 100%;
 }
 
 body {
   min-height: 100%;
-}
+} */
 
 .logo {
   font-family: "Righteous";

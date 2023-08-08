@@ -12,7 +12,7 @@ export default function CheckoutSuccess() {
   const orderNumber = Math.floor(Math.random() * 1000000);
 
   return (
-    <main className="md:mx-auto px-4 mt-10 md:max-w-screen-xl lg:max-w-screen-2xl">
+    <main className="md:mx-auto px-4 mt-10 mb-auto md:max-w-screen-xl lg:max-w-screen-2xl">
       <h1 className="text-4xl mb-8 mx-auto font-bold">
         Thank you for your order!
       </h1>

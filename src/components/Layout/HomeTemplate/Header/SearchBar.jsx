@@ -41,7 +41,7 @@ export default function SearchBar() {
         key={product.id}
         to={`product/${product.id}`}
         className={`block p-2 hover:text-white  dark:hover:text-black  ${
-          isSelected && "text-white  dark:text-black "
+          isSelected && "text-white dark:text-black"
         }`}
         onClick={() => {
           setSearchTerm("");
@@ -53,7 +53,7 @@ export default function SearchBar() {
   });
   const dropDown = (
     <ul
-      className="absolute md:top-11 p-2 w-full bg-slate-400 z-10"
+      className="absolute md:top-11 p-2 w-full bg-blue z-10 rounded-md"
       onMouseLeave={() => setSearchTerm("")}
     >
       {filteredProducts.length ? productsList : <li>No Item</li>}

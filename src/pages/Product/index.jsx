@@ -27,7 +27,7 @@ function Product() {
   };
 
   return (
-    <main className="mx-6 lg:mx-auto md:max-w-screen-xl lg:max-w-screen-2xl pt-6 ">
+    <main className="mb-auto mx-6 lg:mx-auto md:max-w-screen-xl lg:max-w-screen-2xl pt-6">
       <button onClick={() => history.back()} className="underline">
         Go Back
       </button>
