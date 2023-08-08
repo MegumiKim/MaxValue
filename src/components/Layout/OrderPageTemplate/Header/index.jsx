@@ -14,7 +14,7 @@ export function Header() {
             MaxValue
           </Link>
           <div className="flex my-auto gap-3 text-xl">
-            <button onClick={toggleTheme}>
+            <button onClick={toggleTheme} aria-label="toggle dark mode">
               {theme === "dark" ? <FaSun /> : <FaMoon />}
             </button>
           </div>

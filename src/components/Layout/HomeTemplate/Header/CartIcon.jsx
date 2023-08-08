@@ -7,7 +7,7 @@ export default function CartIcon() {
   const totalQty = useStore((state) => state.totalQty);
 
   return (
-    <button className="relative">
+    <button className="relative" aria-label="cart">
       <Link to="/cart">
         <FaCartPlus />
         {totalQty > 0 && (

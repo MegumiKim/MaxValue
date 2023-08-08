@@ -16,7 +16,7 @@ function Cart() {
 
       <h1 className="text-4xl mb-6 font-bold mt-3">My Cart</h1>
       {cartItems.length ? (
-        <div className="md:flex mb-10 justify-between gap-28">
+        <div className="md:flex mb-10 gap-10 lg:gap-20">
           <div className="mt-10 mx-auto">
             {cartItems.map((item) => (
               <CartCard data={item} key={item.id} />

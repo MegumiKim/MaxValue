@@ -9,24 +9,24 @@ export default function CartCard({ data }) {
   const { changeQty, removeFromCart } = useStore();
 
   return (
-    <div className="flex align-middle mb-4 pb-4 border-b-2 border-opacity-30 border-slate-400 md:gap-10 max-w-md mx-auto">
-      <div className="flex-1 m-auto">
+    <div className="flex align-middle mb-4 pb-4 border-b-2 border-opacity-30 border-slate-400 gap-3 max-w-xs md:max-w-md">
+      <div className="max-w-full flex-1 m-auto">
         <img
           src={data.thumbnail}
           alt={data.title}
-          className="w-28 object-cover m-auto rounded-lg"
+          className="object-cover m-auto rounded-lg"
         />
       </div>
       <div className="flex-1 flex flex-col divide-y-slate-50 truncate">
         <Link
           to={"/product/" + data.id}
-          className="text-lg hover:underline truncate font-semibold"
+          className="text-lg hover:underline truncate font-semibold "
         >
           {data.title}
         </Link>
         <p className="">{currencyFormat(data.price)} </p>
 
-        <div className="flex mx-auto md:mx-0 justify-between gap-6">
+        <div className="flex md:mx-0 justify-between gap-3">
           <form className="align-middle flex my-4 ">
             <label className="align-middle text-center md:m-auto">Qty:</label>
             <input

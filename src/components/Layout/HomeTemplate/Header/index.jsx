@@ -17,7 +17,11 @@ export function Header() {
           </Link>
           <div className="flex my-auto gap-6 text-xl ">
             <CartIcon />
-            <button onClick={toggleTheme} className="hover:text-yellow-500">
+            <button
+              onClick={toggleTheme}
+              className="hover:text-yellow-500"
+              aria-label="toggle dark mode"
+            >
               {theme === "dark" ? <FaSun /> : <FaMoon />}
             </button>
           </div>
