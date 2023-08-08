@@ -10,11 +10,11 @@ export default function CartCard({ data }) {
 
   return (
     <div className="flex align-middle mb-4 pb-4 border-b-2 border-opacity-30 border-slate-400 gap-3 max-w-xs md:max-w-md">
-      <div className="max-w-full flex-1 m-auto">
+      <div className="flex-1 m-auto">
         <img
           src={data.thumbnail}
           alt={data.title}
-          className="object-cover m-auto rounded-lg"
+          className="object-cover m-auto rounded-lg "
         />
       </div>
       <div className="flex-1 flex flex-col divide-y-slate-50 truncate">
