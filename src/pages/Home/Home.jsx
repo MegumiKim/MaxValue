@@ -18,7 +18,7 @@ function Home() {
   }
 
   return (
-    <main className="mx-auto mb-auto md:max-w-screen-xl lg:max-w-screen-2xl md:flex ">
+    <main className="m-auto mb-auto md:max-w-screen-xl lg:max-w-screen-2xl md:flex ">
       <section className="hero flex w-full md:w-2/5 ">
         <div className="my-auto px-6 text-xl w-full flex flex-wrap justify-between md:hidden gap-4">
           <h1 className="hero-text"> Any Time</h1>
