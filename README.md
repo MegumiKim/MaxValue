@@ -6,7 +6,7 @@
 
 ## Brief
 
-Reactive and responsive E-commerce personal project.
+Reactive and responsive E-commerce demo site.
 API: Dummy JSON
 
 ## Built With
