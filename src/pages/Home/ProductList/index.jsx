@@ -41,12 +41,12 @@ export default function ProductList({ products }) {
   ));
 
   return (
-    <section className="my-5 mx-4 py-10 md:my-1 md:py-0 ">
+    <section className="my-5 m-auto py-10 px-4 md:my-1 md:py-0 w-full h-full">
       <Categories changeCategory={changeCategory} currentCat={category} />
 
       <SortOptions changeSortOrder={changeSortOrder} />
 
-      <div className="grid sm:gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-4 md:gap-y-2 lg:gap-y-6 ">
+      <div className="grid sm:gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-y-4 md:gap-y-2 md:gap-x-6 lg:gap-y-6 ">
         {productsToDisplay}
       </div>
       <Pagination
