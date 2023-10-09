@@ -1,13 +1,12 @@
 # Max Value
 
-[project's demo site](https://max-value.kimuramegumi.site/)
+[project's demo site](https://max-value.megumi.no)
 
 ![Homepage Preview](public/screenshot.png)
 
 ## Brief
 
-Reactive and responsive E-commerce demo site.
-API: Dummy JSON
+This project involves creating an interface for a fictional shopping website called 'Max Value,' utilizing data from a Dummy API. The website allows users to browse, search for products, and simulate a smooth purchasing process. The primary objective of this project was to gain hands-on experience in using React with TailwindCSS.
 
 ## Built With
 
@@ -32,7 +31,7 @@ npm i
 ### Running
 
 ```bash
-npm run build
+npm run dev
 ```
 
 ## Contact
