@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-// import { Layout } from "./components/Layout/HomeTemplate/index";
 import Loader from "./components/ui/Loader";
 import { HomeTemplate } from "./components/Layout/HomeTemplate/index";
 import { OrderPageTemplate } from "./components/Layout/OrderPageTemplate";

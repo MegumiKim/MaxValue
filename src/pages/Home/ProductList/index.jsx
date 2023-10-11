@@ -30,7 +30,7 @@ export default function ProductList({ products }) {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 15;
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItems = indexOfLastItem - itemsPerPage;
@@ -41,7 +41,7 @@ export default function ProductList({ products }) {
   ));
 
   return (
-    <section className="my-5 m-auto py-10 px-4 md:my-1 md:py-0 w-full h-full">
+    <section className="my-5 m-auto py-10 px-4 w-full h-full max-w-[1200px]">
       <Categories changeCategory={changeCategory} currentCat={category} />
 
       <SortOptions changeSortOrder={changeSortOrder} />

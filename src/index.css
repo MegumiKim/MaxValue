@@ -105,23 +105,3 @@ button:focus-visible {
   color: rgb(198, 93, 93);
   border: 2px solid rgb(192, 75, 75);
 }
-
-/* #search-bar:focus {
-  width: 50vw;
-} */
-
-/* .light_theme {
-  --primary-color: #302ae6;
-  --secondary-color: #536390;
-  --font-color: #424242;
-  --bg-color: #fff;
-  --heading-color: #292922;
-}
-
-.dark_theme {
-  --primary-color: #9a97f3;
-  --secondary-color: #818cab;
-  --font-color: #e1e1ff;
-  --bg-color: #161625;
-  --heading-color: #818cab;
-} */

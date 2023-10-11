@@ -22,7 +22,7 @@ export const Context = (props) => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
